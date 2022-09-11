@@ -25,7 +25,7 @@ await fs.copy("source/", "public/chrome/");
 let simpleMoodle = await fs.readFile("public/chrome/simpleMoodle.js");
 simpleMoodle = `\nconst browser = chrome;\n${simpleMoodle}`;
 await fs.writeFile("public/chrome/simpleMoodle.js", simpleMoodle);
-
+await generateZip("public/chrome/", "public/chrome.zip");
 
 
 
