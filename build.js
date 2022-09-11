@@ -1,5 +1,6 @@
 
 import fs from "fs-extra";
+import AdmZip from "adm-zip";
 
 
 await fs.emptyDir("public/firefox/");
@@ -15,6 +16,7 @@ for(const resource of manifest.web_accessible_resources){
 }
 manifest.web_accessible_resources = links;
 await fs.writeJson("public/firefox/manifest.json", manifest, { spaces: "\t" });
+await generateZip("public/firefox/", "public/firefox.zip");
 
 
 await fs.emptyDir("public/chrome/");
@@ -23,3 +25,12 @@ await fs.copy("source/", "public/chrome/");
 let simpleMoodle = await fs.readFile("public/chrome/simpleMoodle.js");
 simpleMoodle = `\nconst browser = chrome;\n${simpleMoodle}`;
 await fs.writeFile("public/chrome/simpleMoodle.js", simpleMoodle);
+
+
+
+
+async function generateZip(source, destination){
+	const zip = new AdmZip();
+	zip.addLocalFolder(source);
+	zip.writeZip(destination);
+}

@@ -13,6 +13,7 @@
   "devDependencies": {
     "@atjn/eslint-config": "^5.1.0",
     "@atjn/stylelint-config": "^3.0.0",
+    "adm-zip": "^0.5.9",
     "eslint": "^8.23.0",
     "fs-extra": "^10.1.0",
     "stylelint": "^14.11.0"
