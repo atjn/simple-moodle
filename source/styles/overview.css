@@ -1,0 +1,86 @@
+
+/* Assumes that we are in list mode */
+
+[id^="paged-content-container"] > *:not([id^="page-container"]),
+.course-listitem > .row > *:not(:first-child),
+#block-region-content > *:not(.block_myoverview),
+h5,
+h5.d-inline,
+#sortingdropdown,
+#displaydropdown,
+.categoryname {
+	display: none !important;
+}
+
+#region-main {
+	background-color: var(--background-color) !important;
+}
+
+.container-fluid {
+	width: unset;
+	min-width: 40vw;
+}
+
+.block_myoverview {
+	border: none;
+	min-height: 70vh;
+}
+
+.block-myoverview > div > div.dropdown {
+	margin-left: auto !important;
+	margin-right: 0 !important;
+	margin-bottom: 2em !important;
+}
+
+button .icon {
+	display: none;
+}
+
+.course-listitem {
+	padding: 0;
+	margin-bottom: 2em;
+	border: none;
+}
+
+.course-listitem .d-flex {
+	flex: unset;
+	max-width: unset;
+}
+
+.course-listitem > .row > div > div {
+	width: 100%;
+}
+
+.course-listitem a {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 1.5em;
+	font-size: 18px;
+	border: 1px solid !important;
+	border-color: var(--item-border-color) !important;
+	border-radius: .5em;
+	transition: background-color .1s ease-out;
+}
+.course-listitem a:is(:hover, :focus) {
+	text-decoration: none !important;
+}
+
+.course-listitem [id^="favorite-icon"] .icon {
+	--size: 30px;
+	width: var(--size);
+	height: var(--size);
+	font-size: var(--size);
+	margin-right: 16px !important;
+	color: rgb(215 200 125);
+	vertical-align: middle;
+	transition: color .1s ease-out, transform .1s ease-out;
+}
+.course-listitem [id^="favorite-icon"] .icon:is(:hover, :focus) {
+	transform: scale(1.2);
+}
+
+.course-listitem [id^="favorite-icon"] > span.hidden {
+	display: initial !important;
+	opacity: .3;
+}

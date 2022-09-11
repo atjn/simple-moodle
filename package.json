@@ -1,0 +1,20 @@
+{
+  "type": "module",
+  "scripts": {
+    "lint:js": "eslint --fix \"source/**/*.js\"",
+    "lint:js:nofix": "eslint \"source/**/*.js\"",
+    "lint:css": "stylelint --fix \"source/**/*.css\"",
+    "lint:css:nofix": "stylelint \"source/**/*.css\"",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:nofix": "npm run lint:js:nofix && npm run lint:css:nofix",
+    "test": "npm run lint:nofix",
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "@atjn/eslint-config": "^5.1.0",
+    "@atjn/stylelint-config": "^3.0.0",
+    "eslint": "^8.23.0",
+    "fs-extra": "^10.1.0",
+    "stylelint": "^14.11.0"
+  }
+}

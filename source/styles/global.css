@@ -1,0 +1,110 @@
+
+:root {
+	--text-color: rgb(29 33 37);
+	--background-color: rgb(247 247 247);
+	--link-color: rgb(26 13 171);
+	--link-color-visited: rgb(109 0 163);
+	--item-color: white;
+	--item-color-highlight: rgb(210 232 251);
+	--item-border-color: rgba(0 0 0 .125);
+	
+	--header-height: 100px;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--text-color: rgb(201 209 217);
+		--background-color: rgb(1 4 9);
+		--link-color: rgb(153 190 255);
+		--link-color-visited: rgb(221 153 255);
+		--item-color: rgb(13 17 23);
+		--item-color-highlight: rgb(23 30 41);
+		--item-border-color: rgb(48 54 61);
+	}
+}
+
+a {
+	color: var(--link-color);
+	transition: color .1s ease-out;
+}
+a:visited {
+	color: var(--link-color-visited);
+}
+
+body,
+.card,
+nav.navbar {
+	background-color: var(--background-color) !important;
+}
+
+body,
+:not(a) > span,
+.nav-link,
+.modal-header button.close,
+.card,
+.btn-outline-secondary,
+.dropdown-item {
+	color: var(--text-color) !important;
+}
+
+.btn-outline-secondary {
+	border-color: var(--item-border-color) !important;
+}
+
+#region-main,
+.modal-dialog,
+.modal-content,
+.bg-pulse-grey,
+.dropdown-menu,
+.btn-light,
+.course-listitem {
+	background-color: var(--item-color) !important;
+	border-color: var(--item-border-color) !important;
+}
+
+.aalink.focus,
+a.focus.autolink,
+.aalink:focus,
+.aalink:hover,
+a.autolink:focus,
+a.autolink:hover,
+.arrow_link.focus,
+.arrow_link:focus,
+.arrow_link:hover,
+a.focus,
+a:focus,
+a:hover,
+.activityinstance > a.focus,
+.activityinstance > a:focus,
+.activityinstance > a:hover,
+#page-footer a.focus,
+#page-footer a:focus,
+#page-footer a:hover,
+.btn-outline-secondary:focus,
+.btn-outline-secondary:hover {
+	background-color: var(--item-color-highlight);
+	box-shadow: none !important;
+}
+
+nav.navbar > *:not(simple-moodle-toggle, simple-moodle-navigation),
+#nav-drawer,
+#page > header,
+footer {
+	display: none !important;
+}
+
+body {
+	margin-left: 0 !important;
+}
+
+nav.navbar {
+	justify-content: center;
+	max-height: unset;
+	height: var(--header-height);
+	box-shadow: none !important;
+	font-size: 1.4em;
+}
+
+#page {
+	margin-top: var(--header-height);
+}

@@ -1,0 +1,59 @@
+
+#region-main > div > *:not(#calendar),
+.fc-left,
+.fc-center,
+.fc-view tr > .fc-axis:first-child,
+.fc-bg {
+	display: none;
+}
+
+.fc-event :not(a) > span {
+	color: black !important;
+}
+
+.fc-widget-content,
+.fc-head-container,
+.fc-head th,
+.fc-slats td {
+	border: none !important;
+}
+
+.fc-event {
+	font-size: .93em !important;
+	line-height: 1.3 !important;
+}
+
+.fc-time {
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: .2em;
+	font-size: 1em !important;
+}
+
+.fc-title {
+	padding: .2em;
+}
+
+.fc-title > span p {
+	white-space: nowrap !important;
+	overflow: hidden !important;
+	text-overflow: ellipsis;
+	margin: 0 !important;
+}
+
+.fc-title > span p :is(b, br) {
+	display: none;
+}
+
+.fc-title > span > div {
+	margin: 0 !important;
+}
+
+.fc-title > span > div > p:first-child {
+	font-weight: bold;
+}
+
+.modal-body > :is(br, div.small) {
+	display: none;
+}
