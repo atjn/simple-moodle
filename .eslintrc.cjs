@@ -13,6 +13,10 @@ module.exports = {
   globals: {
 		browser: true,
 		chrome: true,
-	}
+	},
+
+  rules: {
+    strict: "off",
+  },
 
 };

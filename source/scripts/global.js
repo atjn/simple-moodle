@@ -1,3 +1,4 @@
+"use strict";
 
 /**
  * @file
@@ -33,6 +34,7 @@ input[name="simpleMoodleToggle"] {
 	}
 
 }
+customElements.define("simple-moodle-toggle", SimpleMoodleToggle);
 
 class SimpleMoodleNavigation extends HTMLElement{
 
@@ -67,29 +69,37 @@ a:hover, a:focus {
 	}
 
 }
+customElements.define("simple-moodle-navigation", SimpleMoodleNavigation);
 
-const navbar = document.querySelector("nav.navbar");
-if(navbar){
+let hasLoaded = false;
+const load = () => {
+	if(hasLoaded) return;
+	hasLoaded = true;
 
-	// If the user isn't logged in, immediately redirect them to the login page
-	const userLogin = navbar.querySelector(".usermenu .login a");
-	if(userLogin){
-		window.location.href = userLogin.href;
+	const navbar = document.querySelector("nav.navbar");
+	if(navbar){
+
+		// If the user isn't logged in, immediately redirect them to the login page
+		const userLogin = navbar.querySelector(".usermenu .login a");
+		if(userLogin){
+			window.location.href = userLogin.href;
+		}
+		
+		const toggle = document.createElement("simple-moodle-toggle");
+		navbar.appendChild(toggle);
+
+		if(getEnabled()){
+
+			const navigation = document.createElement("simple-moodle-navigation");
+			navbar.appendChild(navigation);
+
+		}
+
 	}
-
-	customElements.define("simple-moodle-toggle", SimpleMoodleToggle);
-	const toggle = document.createElement("simple-moodle-toggle");
-	navbar.appendChild(toggle);
-
-	if(getEnabled()){
-
-		customElements.define("simple-moodle-navigation", SimpleMoodleNavigation);
-		const navigation = document.createElement("simple-moodle-navigation");
-		navbar.appendChild(navigation);
-
-	}
-
-}
+};
+window.addEventListener("DOMContentLoaded", load);
+window.addEventListener("load", load);
+if(document.readyState !== "loading") load();
 
 /**
  * Tells whether or not the extension is enabled by the user.

@@ -7,43 +7,68 @@
 const filter = /\bmoodle\b/ui;
 if(filter.test(window.location.hostname)){
 
-	const globalScript = document.createElement("script");
-	globalScript.type = "module"; globalScript.src = browser.runtime.getURL("scripts/global.js");
-	document.head.appendChild(globalScript);
+	const head = new Promise(resolve => {
+		const getHead = () => {
+			if(document.head){
+				resolve(document.head);
+				return;
+			}
+			setTimeout(getHead, 5);
+		};
+		getHead();
+	});
+
+	(async () => {
+		const globalScript = document.createElement("script");
+		globalScript.src = browser.runtime.getURL("scripts/global.js");
+		(await head).appendChild(globalScript);
+	})();
 
 	if(getEnabled()){
 
-		const globalStyle = document.createElement("link");
-		globalStyle.rel = "stylesheet"; globalStyle.href = browser.runtime.getURL("styles/global.css");
-		document.head.appendChild(globalStyle);
+		(async () => {
+			const globalStyle = document.createElement("link");
+			globalStyle.rel = "stylesheet"; globalStyle.href = browser.runtime.getURL("styles/global.css");
+			(await head).appendChild(globalStyle);
+		})();
 
-		const overview = document.querySelector("section.block_myoverview");
-		const course = document.querySelector("body#page-course-view-topics");
-		const calendar = document.querySelector("#calendar");
+		let hasLoaded = false;
+		const load = () => {
+			if(hasLoaded) return;
+			hasLoaded = true;
 
-		if(overview){
+			// Overview
+			if(document.querySelector("section.block_myoverview")){
 
-			const style = document.createElement("link");
-			style.rel = "stylesheet"; style.href = browser.runtime.getURL("styles/overview.css");
-			document.head.appendChild(style);
+				const style = document.createElement("link");
+				style.rel = "stylesheet"; style.href = browser.runtime.getURL("styles/overview.css");
+				document.head.appendChild(style);
 
-			const script = document.createElement("script");
-			script.type = "module"; script.src = browser.runtime.getURL("scripts/overview.js");
-			document.head.appendChild(script);
+				const script = document.createElement("script");
+				script.type = "module"; script.src = browser.runtime.getURL("scripts/overview.js");
+				document.head.appendChild(script);
 
-		}else if(course){
+			// Course
+			}else if(document.querySelector("body#page-course-view-topics")){
 
-			const style = document.createElement("link");
-			style.rel = "stylesheet"; style.href = browser.runtime.getURL("styles/course.css");
-			document.head.appendChild(style);
+				const style = document.createElement("link");
+				style.rel = "stylesheet"; style.href = browser.runtime.getURL("styles/course.css");
+				document.head.appendChild(style);
 
-		}else if(calendar){
+			// Calendar
+			}else if(document.querySelector("#calendar")){
 
-			const style = document.createElement("link");
-			style.rel = "stylesheet"; style.href = browser.runtime.getURL("styles/calendar.css");
-			document.head.appendChild(style);
+				const style = document.createElement("link");
+				style.rel = "stylesheet"; style.href = browser.runtime.getURL("styles/calendar.css");
+				document.head.appendChild(style);
 
-		}
+			}
+
+		};
+		window.addEventListener("DOMContentLoaded", load);
+		window.addEventListener("load", load);
+		if(document.readyState !== "loading") load();
+
 	}
 
 }
