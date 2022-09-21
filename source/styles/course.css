@@ -6,11 +6,3 @@
 #region-main-box {
 	display: flex;
 }
-
-#region-main {
-	width: unset !important;
-	max-width: 1200px;
-	min-width: 30vw;
-	margin-left: auto;
-	margin-right: auto;
-}

@@ -108,3 +108,11 @@ nav.navbar {
 #page {
 	margin-top: var(--header-height);
 }
+
+#region-main {
+	width: unset !important;
+	max-width: 1200px;
+	min-width: 45vw;
+	margin-left: auto;
+	margin-right: auto;
+}

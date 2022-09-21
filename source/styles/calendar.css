@@ -1,4 +1,8 @@
 
+#region-main {
+	max-width: unset !important;
+}
+
 #region-main > div > *:not(#calendar),
 .fc-left,
 .fc-center,
