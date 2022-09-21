@@ -16,6 +16,7 @@ class SimpleMoodleToggle extends HTMLElement{
 <style>
 input[name="simpleMoodleToggle"] {
 	vertical-align: middle;
+	cursor: pointer;
 }
 </style>
 <label for="simpleMoodleToggle">Simple Moodle</label>
