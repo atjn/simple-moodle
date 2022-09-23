@@ -57,7 +57,7 @@ a {
 	border-radius: 3px;
 	transition: background-color .1s ease-out;
 }
-a:hover, a:focus {
+a:is(:hover, :focus) {
 	background-color: var(--item-color-highlight);
 }
 </style>

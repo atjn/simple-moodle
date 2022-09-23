@@ -3,7 +3,7 @@
 	--text-color: rgb(29 33 37);
 	--background-color: rgb(247 247 247);
 	--link-color: rgb(26 13 171);
-	--link-color-visited: rgb(109 0 163);
+	--link-color-highlight: rgb(109 0 163);
 	--item-color: white;
 	--item-color-highlight: rgb(210 232 251);
 	--item-border-color: rgba(0 0 0 .125);
@@ -16,7 +16,7 @@
 		--text-color: rgb(201 209 217);
 		--background-color: rgb(1 4 9);
 		--link-color: rgb(153 190 255);
-		--link-color-visited: rgb(221 153 255);
+		--link-color-highlight: rgb(221 153 255);
 		--item-color: rgb(13 17 23);
 		--item-color-highlight: rgb(23 30 41);
 		--item-border-color: rgb(48 54 61);
@@ -25,10 +25,6 @@
 
 a {
 	color: var(--link-color);
-	transition: color .1s ease-out;
-}
-a:visited {
-	color: var(--link-color-visited);
 }
 
 body,
@@ -41,9 +37,13 @@ body,
 :not(a) > span,
 .nav-link,
 .modal-header button.close,
+.table,
 .card,
+.btn-secondary,
+.btn-light,
 .btn-outline-secondary,
-.dropdown-item {
+.dropdown-item,
+.custom-select {
 	color: var(--text-color) !important;
 }
 
@@ -56,10 +56,20 @@ body,
 .modal-content,
 .bg-pulse-grey,
 .dropdown-menu,
+.btn-secondary,
 .btn-light,
-.course-listitem {
+.custom-select {
 	background-color: var(--item-color) !important;
 	border-color: var(--item-border-color) !important;
+}
+
+.btn-secondary:is(:hover, :focus),
+.btn-light:is(:hover, :focus),
+.custom-select:is(:hover, :focus),
+.btn-outline-secondary:is(:hover, :focus) {
+	background-color: var(--item-color-highlight) !important;
+	cursor: pointer;
+	box-shadow: none !important;
 }
 
 .aalink.focus,
@@ -74,16 +84,25 @@ a.autolink:hover,
 a.focus,
 a:focus,
 a:hover,
+a:not([class]).focus,
+a:not([class]):focus,
+a:not([class]):hover,
 .activityinstance > a.focus,
 .activityinstance > a:focus,
 .activityinstance > a:hover,
 #page-footer a.focus,
 #page-footer a:focus,
 #page-footer a:hover,
-.btn-outline-secondary:focus,
-.btn-outline-secondary:hover {
-	background-color: var(--item-color-highlight);
-	box-shadow: none !important;
+#page-footer a:not([class]).focus,
+#page-footer a:not([class]):focus,
+#page-footer a:not([class]):hover,
+.btn-link.focus,
+.btn-link:focus,
+.btn-link:hover {
+	color: var(--link-color-highlight);
+	text-decoration: underline;
+	background: none;
+	box-shadow: none;
 }
 
 nav.navbar > *:not(simple-moodle-toggle, simple-moodle-navigation),

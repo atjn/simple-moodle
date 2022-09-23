@@ -40,6 +40,7 @@ button .icon {
 	padding: 0;
 	margin-bottom: 2em;
 	border: none;
+	background: none !important;
 }
 
 .course-listitem .d-flex {
@@ -57,13 +58,18 @@ button .icon {
 	width: 100%;
 	padding: 1.5em;
 	font-size: 18px;
+	color: var(--text-color) !important;
 	border: 1px solid !important;
 	border-color: var(--item-border-color) !important;
 	border-radius: .5em;
+	background-color: var(--item-color) !important;
 	transition: background-color .1s ease-out;
 }
 .course-listitem a:is(:hover, :focus) {
+	color: var(--text-color) !important;
 	text-decoration: none !important;
+	background-color: var(--item-color-highlight) !important;
+	box-shadow: none !important;
 }
 
 .course-listitem [id^="favorite-icon"] .icon {
