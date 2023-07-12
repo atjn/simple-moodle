@@ -11,11 +11,12 @@
     "build": "node build.js"
   },
   "devDependencies": {
-    "@atjn/eslint-config": "^5.1.0",
-    "@atjn/stylelint-config": "^3.0.0",
+    "@atjn/eslint-config": "^8.0.0",
+    "@atjn/stylelint-config": "^5.0.0",
     "adm-zip": "^0.5.10",
-    "eslint": "^8.32.0",
-    "fs-extra": "^11.1.0",
-    "stylelint": "^14.16.1"
+    "eslint": "^8.44.0",
+    "fs-extra": "^11.1.1",
+    "stylelint": "^15.10.1",
+    "stylelint-stylistic": "^0.4.3"
   }
 }
