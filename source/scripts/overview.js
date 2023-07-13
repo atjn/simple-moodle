@@ -44,8 +44,8 @@ setGrouping();
 
 // Make it easy to add/remove favorite courses
 const attachFavoriteButtons = () => {
-	for(const courseItem of document.querySelectorAll(".course-listitem")){
-		const iconSpan = courseItem.querySelector(`[id^="favorite-icon"] > span`);
+	for(const courseItem of document.querySelectorAll(".rui-course-listitem")){
+		const iconSpan = courseItem.querySelector(`[id^="favorite-icon"]`);
 		const icon = iconSpan?.querySelector(".icon");
 		if(iconSpan && icon && iconSpan.dataset.simpleMoodleObserving !== "true"){
 			icon.addEventListener("click", event => {

@@ -2,13 +2,16 @@
 /* Assumes that we are in list mode */
 
 [id^="paged-content-container"] > *:not([id^="page-container"]),
-.course-listitem > .row > *:not(:first-child),
+.rui-course-listitem > .row > *:not(:first-child),
 #block-region-content > *:not(.block_myoverview),
 h5,
 h5.d-inline,
 #sortingdropdown,
 #displaydropdown,
-.categoryname {
+.search-input-group,
+.categoryname,
+.rui-myoverview-action-menu,
+.rui-course-list-body > .d-block > :not(h4) {
 	display: none !important;
 }
 
@@ -26,33 +29,32 @@ h5.d-inline,
 	min-height: 70vh;
 }
 
-.block-myoverview > div > div.dropdown {
-	margin-left: auto !important;
+.block-myoverview > div > div:has(div.dropdown) {
+	justify-content: center !important;
+}
+.block-myoverview > div > div > div.dropdown {
 	margin-right: 0 !important;
-	margin-bottom: 2em !important;
 }
 
 button .icon {
 	display: none;
 }
 
-.course-listitem {
-	padding: 0;
-	margin-bottom: 2em;
+.rui-course-listitem {
 	border: none;
 	background: none !important;
 }
 
-.course-listitem .d-flex {
+.rui-course-listitem .d-flex {
 	flex: unset;
 	max-width: unset;
 }
 
-.course-listitem > .row > div > div {
+.rui-course-listitem > .row > div > div {
 	width: 100%;
 }
 
-.course-listitem a {
+.rui-course-listitem a {
 	display: flex;
 	align-items: center;
 	width: 100%;
@@ -65,14 +67,17 @@ button .icon {
 	background-color: var(--item-color) !important;
 	transition: background-color .1s ease-out;
 }
-.course-listitem a:is(:hover, :focus) {
+.rui-course-listitem a:is(:hover, :focus) {
 	color: var(--text-color) !important;
 	text-decoration: none !important;
 	background-color: var(--item-color-highlight) !important;
 	box-shadow: none !important;
 }
+.rui-course-listitem a:is(:hover, :focus)::after {
+	content: unset !important;
+}
 
-.course-listitem [id^="favorite-icon"] .icon {
+.rui-course-listitem [id^="favorite-icon"] .icon > svg {
 	--size: 30px;
 	width: var(--size);
 	height: var(--size);
@@ -82,11 +87,11 @@ button .icon {
 	vertical-align: middle;
 	transition: color .1s ease-out, transform .1s ease-out;
 }
-.course-listitem [id^="favorite-icon"] .icon:is(:hover, :focus) {
+.rui-course-listitem [id^="favorite-icon"] .icon:is(:hover, :focus) > svg {
 	transform: scale(1.2);
 }
 
-.course-listitem [id^="favorite-icon"] > span.hidden {
+.rui-course-listitem [id^="favorite-icon"] > span.hidden {
 	display: initial !important;
 	opacity: .3;
 }

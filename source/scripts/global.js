@@ -77,7 +77,7 @@ const load = () => {
 	if(hasLoaded) return;
 	hasLoaded = true;
 
-	const navbar = document.querySelector("nav.navbar");
+	const navbar = document.querySelector("nav#topBar");
 	if(navbar){
 
 		// If the user isn't logged in, immediately redirect them to the login page
@@ -85,17 +85,16 @@ const load = () => {
 		if(userLogin){
 			window.location.href = userLogin.href;
 		}
-		
-		const toggle = document.createElement("simple-moodle-toggle");
-		navbar.appendChild(toggle);
 
 		if(getEnabled()){
 
 			const navigation = document.createElement("simple-moodle-navigation");
-			navbar.appendChild(navigation);
+			navbar.insertBefore(navigation, navbar.firstChild);
 
 		}
 
+		const toggle = document.createElement("simple-moodle-toggle");
+		navbar.insertBefore(toggle, navbar.firstChild);
 	}
 };
 window.addEventListener("DOMContentLoaded", load);

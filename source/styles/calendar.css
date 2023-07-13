@@ -3,7 +3,7 @@
 	max-width: unset !important;
 }
 
-#region-main > div > *:not(#calendar),
+#region-main .main-content > *:not(#calendar),
 .fc-left,
 .fc-center,
 .fc-view tr > .fc-axis:first-child,

@@ -11,16 +11,25 @@
 	--header-height: 100px;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--text-color: rgb(201 209 217);
-		--background-color: rgb(1 4 9);
-		--link-color: rgb(153 190 255);
-		--link-color-highlight: rgb(221 153 255);
-		--item-color: rgb(13 17 23);
-		--item-color-highlight: rgb(23 30 41);
-		--item-border-color: rgb(48 54 61);
-	}
+/* Fallback for browsers that don't support :has() -> https://caniuse.com/css-has */
+body.theme-dark { 
+	--text-color: rgb(201 209 217);
+	--background-color: rgb(1 4 9);
+	--link-color: rgb(153 190 255);
+	--link-color-highlight: rgb(221 153 255);
+	--item-color: rgb(13 17 23);
+	--item-color-highlight: rgb(23 30 41);
+	--item-border-color: rgb(48 54 61);
+}
+
+:root:has(body.theme-dark) {
+	--text-color: rgb(201 209 217);
+	--background-color: rgb(1 4 9);
+	--link-color: rgb(153 190 255);
+	--link-color-highlight: rgb(221 153 255);
+	--item-color: rgb(13 17 23);
+	--item-color-highlight: rgb(23 30 41);
+	--item-border-color: rgb(48 54 61);
 }
 
 a {
@@ -29,7 +38,7 @@ a {
 
 body,
 .card,
-nav.navbar {
+nav#topBar {
 	background-color: var(--background-color) !important;
 }
 
@@ -100,15 +109,18 @@ a:not([class]):hover,
 .btn-link:focus,
 .btn-link:hover {
 	color: var(--link-color-highlight);
-	text-decoration: underline;
 	background: none;
 	box-shadow: none;
 }
 
-nav.navbar > *:not(simple-moodle-toggle, simple-moodle-navigation),
 #nav-drawer,
-#page > header,
+.rui-breadcrumbs,
+#page-header,
 footer {
+	display: none !important;
+}
+/* This is a separate rule to limit impact on browsers that don't support :has() -> https://caniuse.com/css-has */
+nav#topBar *:not(simple-moodle-toggle, simple-moodle-navigation, :has(#darkModeBtn), #darkModeBtn, #darkModeBtn *) {
 	display: none !important;
 }
 
@@ -116,12 +128,32 @@ body {
 	margin-left: 0 !important;
 }
 
-nav.navbar {
+nav#topBar {
 	justify-content: center;
 	max-height: unset;
 	height: var(--header-height);
 	box-shadow: none !important;
 	font-size: 1.4em;
+}
+
+.rui-topbar {
+	width: unset;
+	margin: unset;
+}
+
+#darkModeBtn {
+	color: var(--text-color);
+	text-decoration: none;
+	padding: .2em .4em;
+	margin-left: 1em;
+	background-color: var(--item-color);
+	border: 1px solid;
+	border-color: var(--item-border-color);
+	border-radius: 3px;
+	transition: background-color .1s ease-out;
+}
+#darkModeBtn:is(:hover, :focus) {
+	background-color: var(--item-color-highlight);
 }
 
 #page {
