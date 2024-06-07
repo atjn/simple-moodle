@@ -10,17 +10,6 @@
 	--header-height: 100px;
 }
 
-/* Fallback for browsers that don't support :has() -> https://caniuse.com/css-has */
-body.theme-dark {
-	--text-color: rgb(201 209 217);
-	--background-color: rgb(1 4 9);
-	--link-color: rgb(153 190 255);
-	--link-color-highlight: rgb(221 153 255);
-	--item-color: rgb(13 17 23);
-	--item-color-highlight: rgb(23 30 41);
-	--item-border-color: rgb(48 54 61);
-}
-
 :root:has(body.theme-dark) {
 	--text-color: rgb(201 209 217);
 	--background-color: rgb(1 4 9);
@@ -118,7 +107,6 @@ a:not([class]):hover,
 footer {
 	display: none !important;
 }
-/* This is a separate rule to limit impact on browsers that don't support :has() -> https://caniuse.com/css-has */
 nav#topBar
 	*:not(
 		simple-moodle-toggle,
