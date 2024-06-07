@@ -1,22 +1,24 @@
 {
   "type": "module",
   "scripts": {
-    "lint:js": "eslint --fix \"source/**/*.js\"",
-    "lint:js:nofix": "eslint \"source/**/*.js\"",
-    "lint:css": "stylelint --fix \"source/**/*.css\"",
-    "lint:css:nofix": "stylelint \"source/**/*.css\"",
-    "lint": "npm run lint:js && npm run lint:css",
-    "lint:nofix": "npm run lint:js:nofix && npm run lint:css:nofix",
+    "lint:eslint": "eslint --fix",
+    "lint:eslint:nofix": "eslint",
+    "lint:prettier": "prettier --write .",
+    "lint:prettier:nofix": "prettier --check .",
+    "lint": "npm run lint:prettier && npm run lint:eslint",
+    "lint:nofix": "npm run lint:prettier:nofix && npm run lint:eslint:nofix",
     "test": "npm run lint:nofix",
     "build": "node build.js"
   },
   "devDependencies": {
-    "@atjn/eslint-config": "^8.0.0",
-    "@atjn/stylelint-config": "^5.0.0",
-    "adm-zip": "^0.5.10",
-    "eslint": "^8.44.0",
-    "fs-extra": "^11.1.1",
-    "stylelint": "^15.10.1",
-    "stylelint-stylistic": "^0.4.3"
+    "@eslint/js": "^9.4.0",
+    "@types/adm-zip": "^0.5.5",
+    "@types/eslint__js": "^8.42.3",
+    "@types/fs-extra": "^11.0.4",
+    "adm-zip": "^0.5.14",
+    "eslint": "^9.4.0",
+    "fs-extra": "^11.2.0",
+    "globals": "^15.4.0",
+    "prettier": "^3.3.1"
   }
 }

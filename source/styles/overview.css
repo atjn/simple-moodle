@@ -1,4 +1,3 @@
-
 /* Assumes that we are in list mode */
 
 [id^="paged-content-container"] > *:not([id^="page-container"]),
@@ -63,9 +62,9 @@ button .icon {
 	color: var(--text-color) !important;
 	border: 1px solid !important;
 	border-color: var(--item-border-color) !important;
-	border-radius: .5em;
+	border-radius: 0.5em;
 	background-color: var(--item-color) !important;
-	transition: background-color .1s ease-out;
+	transition: background-color 0.1s ease-out;
 }
 .rui-course-listitem a:is(:hover, :focus) {
 	color: var(--text-color) !important;
@@ -85,7 +84,9 @@ button .icon {
 	margin-right: 16px !important;
 	color: rgb(215 200 125);
 	vertical-align: middle;
-	transition: color .1s ease-out, transform .1s ease-out;
+	transition:
+		color 0.1s ease-out,
+		transform 0.1s ease-out;
 }
 .rui-course-listitem [id^="favorite-icon"] .icon:is(:hover, :focus) > svg {
 	transform: scale(1.2);
@@ -93,5 +94,5 @@ button .icon {
 
 .rui-course-listitem [id^="favorite-icon"] > span.hidden {
 	display: initial !important;
-	opacity: .3;
+	opacity: 0.3;
 }

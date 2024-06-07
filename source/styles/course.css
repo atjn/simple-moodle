@@ -1,4 +1,3 @@
-
 #region-main-box > section:not(#region-main) {
 	display: none !important;
 }
