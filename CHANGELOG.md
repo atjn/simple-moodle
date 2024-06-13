@@ -1,3 +1,7 @@
+# v3.0.0
+
+Various improvements to efficiency and safety.
+
 # v2.0.0
 
 There is a new version of Moodle that breaks compatibility with this plugin. This is a hotfix to ensure basic functionality is restored.
