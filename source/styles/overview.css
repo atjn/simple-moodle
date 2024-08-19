@@ -10,7 +10,7 @@ h5.d-inline,
 .search-input-group,
 .categoryname,
 .rui-myoverview-action-menu,
-.rui-course-list-body > .d-block > :not(h4) {
+.rui-course-list-body > .d-block > :not(.rui-course-card-title) {
 	display: none !important;
 }
 
