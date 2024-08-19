@@ -1,3 +1,7 @@
+# v3.0.1
+
+Hotfix to restore the course overview.
+
 # v3.0.0
 
 Various improvements to efficiency and safety.
