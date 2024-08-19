@@ -26,6 +26,8 @@ const manifest = await fs.readJson("public/chrome/manifest.json");
 for (const [key, path] of Object.entries(manifest.icons)) {
 	manifest.icons[key] = path.replace(".svg", `-${key}.png`);
 }
+// Chrome does not need to know about Firefox-specific settings
+delete manifest.browser_specific_settings;
 await fs.writeJson("public/chrome/manifest.json", manifest, { spaces: "\t" });
 await generateZip("public/chrome/", "public/chrome.zip");
 
